@@ -1,1 +1,183 @@
-<P>Ola</P>
+<html lang="en">
+<head>
+    <meta name="description"
+          content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <!-- Twitter meta-->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@pratikborsadiya">
+    <meta property="twitter:creator" content="@pratikborsadiya">
+    <!-- Open Graph Meta-->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Vali Admin">
+    <meta property="og:title" content="Vali - Free Bootstrap 4 admin theme">
+    <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
+    <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
+    <meta property="og:description"
+          content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <title>WorkBook</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="../vendor/css/main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<!-- Navbar-->
+<header class="app-header__logo"><a class="app-header">&nbsp;&nbsp;&nbsp;&nbsp;WorkBook</a>
+
+</header>
+<!-- Sidebar-->
+
+
+<main class="app-content-home">
+
+    <div class="app-title">
+        <div>
+            <h1><i class="fa fa-edit"></i>Registro do Usuário</h1>
+            <p>Insira seus dados</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tile">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form action="/usuario/perfil/" method="post">
+                            
+                            <!-- {% if error %}
+                                <div class="alert alert-danger">{{ error.error }}</div>
+                            {% endif %}-->
+                            <div class="row">
+                                <div id="show_class" class="col-lg-12">
+                                   <div class="form-group">
+                                        <label for="nome">Nome:</label>
+                                       <input class="form-control" name="nome" id="nome" type="text"
+                                               placeholder="Nome" required>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email:</label>
+                                        <input class="form-control" name="email" id="email" type="email"
+                                               aria-describedby="emailHelp"
+                                               placeholder="Email" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="cidade">Cidade:</label>
+                                        <input class="form-control" name="cidade" id="cidade" type="text"
+                                               aria-describedby="cidade"
+                                               placeholder="Cidade" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="telefone">Telefone:</label>
+                                        <input class="form-control" name="telefone" id="telefone" type="tel"
+                                               aria-describedby="telefone"
+                                               placeholder="Telefone" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="senha">Senha:</label>
+                                        <input class="form-control" name="senha" id="senha" type="password"
+                                               placeholder="senha" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="senha">Senha:</label>
+                                        <input class="form-control" name="senha" id="senha" type="password"
+                                               placeholder="senha" required>
+                                    </div>
+                                    <fieldset class="form-group">
+                                        <label for="tipo">Tipo de Usuario:</label>
+                                        <!--<legend>Tipo de Usuario:</legend>-->
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                
+                                                                     
+                                                    <input class="form-check-input" id="optionsRadios1" type="radio"
+                                                            name="user" value="cliente" checked>Cliente
+                                                
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                
+                                                                                                            
+                                                    <input class="form-check-input" id="optionsRadios2" type="radio"
+                                                       name="user" value="profissional">Profissional
+                                              
+
+                                            </label>
+                                        </div>
+                                    </fieldset>
+
+
+                                    <div class="tile-footer">
+                                        <button class="btn btn-primary" type="submit">Cadastrar</button>
+                                    </div>
+                                </div>
+                                <div id="show_profissional" class="col-lg-4 offset-lg-1">
+                                        <div class="form-group">
+
+                                            <label class="control-label" for="profissao">Profissão:</label>
+                                            <input class="form-control" name="profissao" id="profissao" type="text"
+                                                   placeholder="Profissão" >
+
+                                        </div>
+                                        <!--Checkbox Markup-->
+                                        <div class="form-group">
+                                            <label class="control-label">Categoria:</label>
+                                            <div class="animated-checkbox" id="tipo">
+                                               
+                                               <!--  <label>
+                                                    <input name="categoria{{categoria.id}}" value="{{categoria.id}}"
+                                                           type="checkbox"><span
+                                                        class="label-text"> {{categoria.nome}}</span>
+                                                </label> -->
+                                                
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="descricao">Descrição</label>
+                                            <textarea class="form-control" name="descricao" id="descricao"
+                                                      rows="3"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="slogan">Imagem:</label>
+                                            <input class="form-control-file" id="slogan" type="file"
+                                                   aria-describedby="fileHelp">
+                                        </div>
+                                    </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+<!-- Essential javascripts for application to work-->
+<script src="../vendor/js/jquery-3.3.1.min.js"></script>
+<script src="../vendor/js/popper.min.js"></script>
+<script src="../vendor/js/bootstrap.min.js"></script>
+<script src="../vendor/js/main.js"></script>
+<script src="../vendor/js/show_view.js"></script>
+<!-- The javascript plugin to display page loading on top-->
+<script src="../vendor/js/plugins/pace.min.js"></script>
+<!-- Page specific javascripts-->
+<!-- Google analytics script-->
+<script type="text/javascript">
+      if(document.location.hostname == 'pratikborsadiya.in') {
+      	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      	ga('create', 'UA-72504830-1', 'auto');
+      	ga('send', 'pageview');
+      }
+
+</script>
+</body>
+</html>

@@ -7,6 +7,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.workbook.WorkBook_project.enums.TipoUsuario;
+
 @Entity
 @Table(name = "usuario")
 public class Usuario{
@@ -28,6 +30,8 @@ public class Usuario{
 	private String telefone;
 	
 	private String foto;
+	
+	private TipoUsuario tipo;
 	
 	@OneToOne
 	@JoinColumn(name = "id_perfil")
@@ -104,6 +108,16 @@ public class Usuario{
 	public void setPerfil(Perfil perfil) {
 		this.perfil = perfil;
 	}
+
+	public TipoUsuario getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoUsuario tipo) {
+		this.tipo = tipo;
+	}
+	
+	
 	
 	
 }
