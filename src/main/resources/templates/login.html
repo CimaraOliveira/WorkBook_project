@@ -22,7 +22,7 @@
     </div>
     <div class="login-box">
         
-        <form class="login-form" th:action="#" method="post">
+        <form class="login-form"  method="post">
             
 			<div class="text-center mb-4">
 			<div th:if="${alerta != null}"
@@ -60,7 +60,7 @@
                 <button class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>ENTRAR</button>
             </div>
             <div class="form-group " align="center">
-                <p class="semibold-text mb-2"><a href="@{/usuarios/cadastrar}">Cadastre-se</a></p>
+                <p class="semibold-text mb-2"><a th:href="@{/usuarios/cadastrar}">Cadastre-se</a></p>
             </div>
         </form>
 
