@@ -5,11 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 @Entity
-public class Role{
+public class Role implements GrantedAuthority{
 	
 	@Id
 	@GeneratedValue
@@ -18,10 +20,10 @@ public class Role{
     @Column(unique = true)
     private String nome;
     
-   	/*@Override
+   	@Override
 	public String getAuthority() {
 		return nome;
-	}*/
+	}
 
 	public Long getId() {
 		return id;

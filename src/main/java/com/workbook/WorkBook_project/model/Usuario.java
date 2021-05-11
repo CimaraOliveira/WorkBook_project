@@ -1,17 +1,34 @@
 package com.workbook.WorkBook_project.model;
 
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.workbook.WorkBook_project.enums.TipoUsuario;
 
 @Entity
 @Table(name = "usuario")
-public class Usuario{
+public class Usuario implements UserDetails{
+	
+	public Usuario() {
+		this.enabled = true;
+		this.accountNonExpired = true;
+		this.accountNonLocked = true;
+		this.credentialsNonExpired = true;
+	}
 		
 	@Id
 	private Long id;	
@@ -36,6 +53,18 @@ public class Usuario{
 	@OneToOne
 	@JoinColumn(name = "id_perfil")
 	private Perfil perfil;
+	
+	private boolean accountNonExpired;
+		
+	private boolean accountNonLocked;
+		
+	private boolean credentialsNonExpired;
+		
+	private boolean enabled;
+	
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@ManyToMany
+	private Set<Role> role = new HashSet<Role>();
 
 	public Long getId() {
 		return id;
@@ -117,7 +146,66 @@ public class Usuario{
 		this.tipo = tipo;
 	}
 	
+	public Set<Role> getRole() {
+		return role;
+	}
+
+	public void setRole(Set<Role> role) {
+		this.role = role;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		Set<GrantedAuthority> authorities = new HashSet<>();
+		authorities.addAll(getRole());
+		return authorities;
+	}
 	
+	@Override
+	public String getPassword() {
+		return this.senha;
+	}
+
+	@Override
+	public String getUsername() {
+		return this.email;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return this.accountNonExpired;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return this.accountNonLocked;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return this.credentialsNonExpired;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setAccountNonExpired(boolean accountNonExpired) {
+		this.accountNonExpired = accountNonExpired;
+	}
+
+	public void setAccountNonLocked(boolean accountNonLocked) {
+		this.accountNonLocked = accountNonLocked;
+	}
+
+	public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+		this.credentialsNonExpired = credentialsNonExpired;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+		
 	
 	
 }

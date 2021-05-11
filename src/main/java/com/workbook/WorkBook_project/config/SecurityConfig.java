@@ -12,7 +12,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// acessos publicos liberados
-		http.authorizeRequests()
+		/*http.authorizeRequests()
 			
 			   .antMatchers("/vendor/**", "/css/**", "/images/**", "/js/**").permitAll()
 			   .antMatchers("/static/**").permitAll()
@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			   .permitAll() 
 			 .and()
 			 	.logout()
-			 	.logoutSuccessUrl("/");
+			 	.logoutSuccessUrl("/");*/
 			   
 	}
 	
