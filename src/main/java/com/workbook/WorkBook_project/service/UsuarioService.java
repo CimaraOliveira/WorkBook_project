@@ -33,7 +33,7 @@ public class UsuarioService implements UserDetailsService{
 	
 	@Transactional(readOnly = false)
 	public void salvar(Usuario usuario) {
-		usuarioRepository.save(usuario);
+		usuarioRepository.saveAndFlush(usuario);
 	}
 	
 	@Transactional(readOnly = false)
@@ -43,11 +43,11 @@ public class UsuarioService implements UserDetailsService{
 		usuarioRepository.save(user);		
 	}
 		
-	
 	@Transactional(readOnly = true)
 	public Usuario getEmail(String email) {
 		return usuarioRepository.findByEmail(email);
 	}
+	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		System.out.println(username);

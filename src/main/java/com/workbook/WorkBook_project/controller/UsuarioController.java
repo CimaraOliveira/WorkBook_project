@@ -31,15 +31,15 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/salvar") 
-	public String salvar(@Valid Usuario user,BindingResult result, RedirectAttributes attr) {
+	public String salvar(@Valid Usuario usuario,BindingResult result, RedirectAttributes attr) {
 		if(result.hasErrors()) { 
 			return "usuario/cadastro";
 		}
-		Usuario u = usuarioService.getEmail(user.getEmail());
+		//Usuario u = usuarioService.getEmail(user.getEmail());
 		
-			String senha = user.getSenha();
-			user.setSenha(new BCryptPasswordEncoder().encode(senha));
-			usuarioService.salvar(user);
+			//String senha = user.getSenha();
+			//user.setSenha(new BCryptPasswordEncoder().encode(senha));
+			usuarioService.salvar(usuario);
 			attr.addFlashAttribute("success", "Usuário Cadastrado com sucesso!");
 			 
 		
